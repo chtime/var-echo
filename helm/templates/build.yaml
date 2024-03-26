@@ -16,4 +16,4 @@ spec:
   output:
     to:
       kind: DockerImage
-      name: {{ printf "default-route-openshift-image-registry.apps-crc.testing/myproject/myimage:var-echo:%s" .Values.revision }}
+      name: {{ printf "default-route-openshift-image-registry.apps-crc.testing/var-echo:%s" .Values.revision }}
