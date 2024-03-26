@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: dynamic-stage-{{ .Values.name }}
-  namespace: dynamic-stages
+  name: {{ .Values.chartName }}
+  namespace: {{ .Values.namespace }}
 spec:
   ports:
   - name: http
     port: 80
     targetPort: 8080
   selector:
-    app: dynamic-stage-{{ .Values.name }}
+    app: {{ .Values.chartName }}
