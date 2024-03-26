@@ -15,5 +15,5 @@ spec:
     type: Docker
   output:
     to:
-      kind: DockerImage
-      name: {{ printf "default-route-openshift-image-registry.apps-crc.testing/var-echo:%s" .Values.revision }}
+      kind: ImageStreamTag
+      name: var-echo/var-echo:{{ .Values.revision }}
