@@ -15,5 +15,4 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      namespace: {{ .Values.namespace }}
       name: {{ printf "var-echo:%s" .Values.revision }}
