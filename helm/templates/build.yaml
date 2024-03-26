@@ -15,4 +15,4 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: {{ printf "var-echo-x:%s" .Values.revision }}
+      name: "var-echo:latest"

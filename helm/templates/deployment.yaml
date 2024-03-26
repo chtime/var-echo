@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.chartName }}
-        image: {{ printf "default-route-openshift-image-registry.apps-crc.testing/var-echo-x:%s" .Values.revision }}
+        image: var-echo:latest
         ports:
         - containerPort: 8080
         env:
