@@ -3,7 +3,6 @@ apiVersion: build.openshift.io/v1
 metadata:
   name: {{ .Values.chartName }}
   namespace: {{ .Values.namespace }}
-  argocd.argoproj.io/sync-wave: "-1"
 spec:
   triggers:
     - type: "ConfigChange"
