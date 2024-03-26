@@ -6,6 +6,10 @@ metadata:
 spec:
   triggers:
     - type: "ConfigChange"
+    - type: "GitHub"
+      github:
+        secretReference:
+          name: "mysecret"
   source:
     git:
       uri: "https://github.com/chtime/var-echo"
