@@ -3,3 +3,6 @@ kind: ImageStream
 metadata:
   name: {{ .Values.chartName }}
   namespace: {{ .Values.namespace }}
+spec:
+  lookupPolicy:
+    local: true
