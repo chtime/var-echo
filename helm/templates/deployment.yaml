@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.chartName }}
-  namespace: {{ .Values.name_space }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 3
   revisionHistoryLimit: 0
