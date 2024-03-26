@@ -6,7 +6,7 @@ metadata:
 spec:
   triggers:
     - type: "ConfigChange"
-  source: 
+  source:
     git:
       uri: "https://github.com/chtime/var-echo"
       ref: {{ .Values.revision }}
@@ -16,3 +16,4 @@ spec:
     to:
       kind: ImageStreamTag
       name: {{ printf "var-echo:%s" .Values.revision }}
+      namespace: {{ .Values.imageStreamNamespace }}
