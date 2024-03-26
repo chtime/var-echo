@@ -6,10 +6,6 @@ metadata:
 spec:
   triggers:
     - type: "ConfigChange"
-    - type: "Generic"
-      generic:
-        secretReference:
-          name: "mysecret"
   source:
     git:
       uri: "https://github.com/chtime/var-echo"
@@ -19,4 +15,5 @@ spec:
   output:
     to:
       kind: ImageStreamTag
+      namespace: {{ .Values.namespace }}
       name: {{ printf "var-echo:%s" .Values.revision }}
