@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
 metadata:
   name: {{ .Values.chartName }}
   namespace: {{ .Values.namespace }}
@@ -7,8 +7,7 @@ spec:
   replicas: 3
   revisionHistoryLimit: 0
   selector:
-    matchLabels:
-      app: {{ .Values.chartName }}
+    app: {{ .Values.chartName }}
   template:
     metadata:
       labels:
@@ -16,9 +15,19 @@ spec:
     spec:
       containers:
       - name: {{ .Values.chartName }}
-        image: var-echo:{{ .Values.revision }}
+        image: "var-echo:{{ .Values.revision }}"
         ports:
         - containerPort: 8080
         env:
         - name: LE_ENV_VAR
           value: {{ .Values.chartName }}
+  triggers:
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - {{ .Values.chartName }}
+      from:
+        kind: ImageStreamTag
+        namespace: {{ .Values.namespace }}
+        name: "var-echo:{{ .Values.revision }}"
