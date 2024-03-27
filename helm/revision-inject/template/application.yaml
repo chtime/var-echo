@@ -2,13 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .Values.chartName }}
-  namespace: argocd
+  namespace: dev
 spec:
   project: default
   source:
     repoURL: 'https://github.com/chtime/var-echo'
     targetRevision: {{ .Values.ref }}
-    path: helm
+    path: helm/var-echo
     helm:
       parameters:
         - name: chartName
@@ -17,8 +17,6 @@ spec:
           value: {{ .Values.stage }}
         - name: namespace
           value: {{ .Values.namespace }}
-        - name: ref
-          value: {{ .Values.ref }}
     plugin:
       name: inject-revision
   destination:
