@@ -8,7 +8,7 @@ import (
 
 func envHandler(w http.ResponseWriter, _ *http.Request) {
 	envVar := os.Getenv("LE_ENV_VAR")
-	_, _ = fmt.Fprintf(w, "Value of LE_ENV_VAR: %s", envVar)
+	_, _ = fmt.Fprintf(w, "Value of LE_ENV_VAR is: %s", envVar)
 }
 
 func main() {
