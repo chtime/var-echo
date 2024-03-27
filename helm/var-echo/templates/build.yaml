@@ -9,7 +9,7 @@ spec:
   source:
     git:
       uri: "https://github.com/chtime/var-echo"
-      ref: {{ .Values.ref }}
+      ref: {{ .Values.revision }}
   strategy:
     type: Docker
   output:

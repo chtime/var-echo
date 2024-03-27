@@ -1,4 +1,4 @@
 apiVersion: v2
 name: var-echo
-description: A Helm chart for deploying dynamic stages for var-echo
+description: A Helm chart for injecting the revision into the application
 version: 1.0.0

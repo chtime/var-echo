@@ -1,0 +1,4 @@
+apiVersion: v2
+name: var-echo
+description: A Helm chart for deploying the var-echo application
+version: 1.0.0

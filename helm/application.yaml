@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.chartName }}
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/chtime/var-echo'
+    targetRevision: {{ .Values.ref }}
+    path: helm
+    helm:
+      parameters:
+        - name: chartName
+          value: {{ .Values.chartName }}
+        - name: stage
+          value: {{ .Values.stage }}
+        - name: namespace
+          value: {{ .Values.namespace }}
+        - name: ref
+          value: {{ .Values.ref }}
+    plugin:
+      name: inject-revision
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
