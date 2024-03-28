@@ -13,6 +13,7 @@ spec:
       labels:
         app: {{ .Values.chartName }}
     spec:
+      serviceAccountName: system:serviceaccounts:dev
       containers:
       - name: {{ .Values.chartName }}
         image: "var-echo:{{ .Values.revision }}"
