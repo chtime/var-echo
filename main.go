@@ -11,7 +11,7 @@ func envHandler(w http.ResponseWriter, _ *http.Request) {
 	stage := os.Getenv("STAGE")
 	namespace := os.Getenv("NAMESPACE")
 	revision := os.Getenv("REVISION")
-	message := "Weclome from var-echo"
+	message := "Welcome from var-echo"
 	_, _ = fmt.Fprintf(w,
 		"Chart Name: %s\nStage: %s\nNamespace: %s\nRevision: %s\nMessage: %s\n",
 		chartName, stage, namespace, revision, message,
