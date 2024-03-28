@@ -29,5 +29,5 @@ spec:
       - {{ .Values.chartName }}
       from:
         kind: ImageStreamTag
-        namespace: {{ .Values.namespace }}
+        namespace: argocd
         name: "var-echo:{{ .Values.revision }}"
