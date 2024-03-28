@@ -16,6 +16,7 @@ spec:
       containers:
       - name: {{ .Values.chartName }}
         image: ""
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
