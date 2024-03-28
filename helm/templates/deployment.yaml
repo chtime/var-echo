@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.chartName }}
-        image: "var-echo:{{ .Values.revision }}"
+        image: ""
         ports:
         - containerPort: 8080
         env:
@@ -26,7 +26,7 @@ spec:
     imageChangeParams:
       automatic: true
       containerNames:
-      - {{ .Values.chartName }}
+      - var-echo
       from:
         kind: ImageStreamTag
         namespace: argocd
