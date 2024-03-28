@@ -21,7 +21,7 @@ spec:
         env:
         - name: CHART_NAME
           value: {{ .Values.chartName }}
-        - stage: STAGE
+        - name: STAGE
           value: {{ .Values.stage }}
         - name: NAMESPACE
           value: {{ .Values.namespace }}
