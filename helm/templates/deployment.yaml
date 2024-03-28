@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: {{ .Values.chartName }}
-        image: ""
-        imagePullPolicy: Always
+        image: "var-echo:{{ .Values.revision }}"
         ports:
         - containerPort: 8080
         env:
