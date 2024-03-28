@@ -7,8 +7,15 @@ import (
 )
 
 func envHandler(w http.ResponseWriter, _ *http.Request) {
-	envVar := os.Getenv("LE_ENV_VAR")
-	_, _ = fmt.Fprintf(w, "Value of LE_ENV_VAR is: %s", envVar)
+	chartName := os.Getenv("CHART_NAME")
+	stage := os.Getenv("STAGE")
+	namespace := os.Getenv("NAMESPACE")
+	revision := os.Getenv("REVISION")
+	message := "Hello from var-echo"
+	_, _ = fmt.Fprintf(w, 
+		"Chart Name: %s\nStage: %s\nNamespace: %s\nRevision: %s\nMessage: %s\n", 
+		chartName, stage, namespace, revision, message
+	)
 }
 
 func main() {

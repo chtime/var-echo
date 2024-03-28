@@ -19,8 +19,14 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: LE_ENV_VAR
+        - name: CHART_NAME
           value: {{ .Values.chartName }}
+        - stage: STAGE
+          value: {{ .Values.stage }}
+        - name: NAMESPACE
+          value: {{ .Values.namespace }}
+        - name: REVISION
+          value: {{ .Values.revision }}
   triggers:
   - type: ImageChange
     imageChangeParams:
